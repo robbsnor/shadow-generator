@@ -1,0 +1,18 @@
+.box-shadow-settings{
+  
+  .input--number{
+
+    input{
+      
+    }
+  }
+  
+  .setting{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 10px 0;
+  }
+}

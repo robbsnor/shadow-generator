@@ -1,7 +1,6 @@
-// dough
+// pre
 @import 'dough';
-
-// var
+@import 'fonts';
 @import 'var';
 
 // vendors
@@ -10,6 +9,9 @@
 // all
 @import 'default';
 @import 'classes';
+@import 'forms';
+@import 'headers';
+@import 'box-shadow-settings';
 
 // other
 @import 'dev/dev';

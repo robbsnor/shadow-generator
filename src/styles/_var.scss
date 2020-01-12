@@ -1,3 +1,19 @@
+
+// colors
+$black-1: #202020;
+
+$gray-1: #f5f5f5;
+$gray-2: #e1e1e1;
+$gray-3: #afafaf;
+
+
+$border-radius-1: 4px;
+$font-size-base: 1.12rem;
+
+
+// form
+$input-btn-border-width: 0;
+
 $grid-breakpoints: (
   xs: 0,
   sm: 576px,
@@ -6,3 +22,12 @@ $grid-breakpoints: (
   xl: 1200px,
   xxl: 1440px
 );
+
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1440px
+) !default;
