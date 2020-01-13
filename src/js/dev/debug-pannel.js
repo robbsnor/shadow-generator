@@ -1,5 +1,3 @@
-console.log('pannel')
-
 // Debug pannel
 function dPannelOpen() {
   $('body').addClass('d_debug-pannel--open')

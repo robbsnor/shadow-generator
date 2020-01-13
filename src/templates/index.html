@@ -27,19 +27,77 @@
 			<div class="col-6">
 				<div class="setting">
 					<span>horizontal offset</span>
-					<div class="input-group input-group--number">
-						<input type="number" class="form-control" value="0">
+					<div class="input-group input-group--arrow">
+						<input id="horizontal-offset" type="number" class="form-control" placeholder="0">
 						<div class="custom">
 							<div class="suffix">px</div>
 							<div class="arrows"><i class="fas fa-chevron-up add"></i><i class="fas fa-chevron-down sub"></i></div>
 						</div>
 					</div>
 				</div>
+				<div class="setting">
+					<span>vertical offset</span>
+					<div class="input-group input-group--arrow">
+						<input id="vertical-offset" type="number" class="form-control" placeholder="0">
+						<div class="custom">
+							<div class="suffix">px</div>
+							<div class="arrows"><i class="fas fa-chevron-up add"></i><i class="fas fa-chevron-down sub"></i></div>
+						</div>
+					</div>
+				</div>
+
+				<hr>
+
+				<div class="setting">
+					<span>blur radius</span>
+					<div class="input-group input-group--arrow">
+						<input id="blur-radius" type="number" class="form-control" value="10">
+						<div class="custom">
+							<div class="suffix">px</div>
+							<div class="arrows"><i class="fas fa-chevron-up add"></i><i class="fas fa-chevron-down sub"></i></div>
+						</div>
+					</div>
+				</div>
+				<div class="setting">
+					<span>spread radius</span>
+					<div class="input-group input-group--arrow">
+						<input id="spread-radius" type="number" class="form-control" placeholder="0">
+						<div class="custom">
+							<div class="suffix">px</div>
+							<div class="arrows"><i class="fas fa-chevron-up add"></i><i class="fas fa-chevron-down sub"></i></div>
+						</div>
+					</div>
+				</div>
+
+				<hr>
+
+				<div class="setting">
+					<span>shadow color</span>
+					<input id="color" type="text" class="form-control text-center" value="#000000">
+					<div class="color"></div>
+				</div>
+
+				<hr>
+
+				<div class="setting">
+					<span>shadow inset</span>
+					<label class="switch">
+						<input id="inset" type="checkbox">
+						<span class="slider"></span>
+					</label>
+				</div>
+
+
+
 			</div>
+
+			<div class="col-6">
+				<div class="preview"></div>
+			</div>
+
 		</div>
 	</div>
 </main>
-
 
 
 {{> footer}}

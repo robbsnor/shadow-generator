@@ -1,5 +1,3 @@
-console.log('grid') 
-
 // Debug grid overlay
 function dGridShow() {
   $('body').addClass('d_debug-grid-overlay--show')
