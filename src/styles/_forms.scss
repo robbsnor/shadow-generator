@@ -16,6 +16,8 @@
 
     padding-right: 90px;
 
+    -moz-appearance: textfield;
+
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
       -webkit-appearance: none;
@@ -32,12 +34,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 213890;
+
     background-color: inherit;
-    text-transform: lowercase;
     border-radius: 0 $border-radius-1 $border-radius-1 0;
+
+    text-transform: lowercase;
+
     overflow: hidden;
     pointer-events: none;
+    user-select: none;
+    z-index: 5;
 
 
     .suffix{
