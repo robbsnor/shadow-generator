@@ -31,12 +31,22 @@ $(document).ready(function () {
 
   function generateGradient() {
 
+    function checkCheckboxState(){
+      if (document.getElementById('inset').checked) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+
     var settings = {
       horizontalOffset: $('#horizontal-offset').val(), // 0
       verticalOffset: $('#vertical-offset').val(), // 0
       blurRadius: $('#blur-radius').val(),
       spreadRadius: $('#spread-radius').val(),
-      color: $('#color').val()
+      color: $('#color').val(),
+      inset: checkCheckboxState()
     }
 
     var settingsArray = [];
@@ -49,19 +59,15 @@ $(document).ready(function () {
       if (settings[key] == "") {
         settings[key] = 0;
       }
+      
 
 
-      // add px to values
-      var val = settings[key].toString();
-      if (!val.includes('#')) {
-        settings[key] = settings[key] + 'px';
-      }
 
-      // push results in array
-      settingsArray.push(settings[key] + ' ')
+      // var val = settings[key].toString();
+
     }
 
-
+    // console.log(settings)
 
     // append shadow to preview
     var gradient = settingsArray.join('');
@@ -72,21 +78,19 @@ $(document).ready(function () {
 
 
 
-var inset = false;
-
 
 
   $(document).on('click', function () {
     generateGradient();
     
-    if (document.getElementById('inset').checked) {
-      inset = true;
+    // if (document.getElementById('inset').checked) {
+    //   inset = true;
       
-    } else {
-      inset = false;
+    // } else {
+    //   inset = false;
       
-    }
-    console.log(inset)
+    // }
+    // console.log(document.getElementById('inset').checked)
   })
 
   generateGradient();
