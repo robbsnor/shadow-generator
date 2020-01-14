@@ -6,6 +6,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+
     text-transform: uppercase;
     font-weight: bold;
     padding: 10px 0;
@@ -21,6 +23,11 @@
 
     span {
       flex-grow: 1;
+    }
+
+
+    .rangeslider{
+      margin: 20px 0;
     }
 
     .color-picker {

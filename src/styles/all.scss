@@ -6,11 +6,13 @@
 // vendors
 @import "node_modules/bootstrap/scss/bootstrap";
 @import "node_modules/vanilla-picker/src/index";
+@import "node_modules/rangeslider.js/dist/rangeslider";
 
 // all
 @import 'default';
 @import 'classes';
 @import 'containers';
+@import 'range-slider';
 @import 'forms';
 @import 'titles';
 @import 'headers';

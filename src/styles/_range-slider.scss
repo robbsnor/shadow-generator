@@ -1,0 +1,28 @@
+.rangeslider{
+  background-color: $gray-2;
+  height: 7px;
+  box-shadow: none;
+  border-radius: 99rem;
+}
+
+.rangeslider__fill{
+  box-shadow: none;
+  border-radius: 99rem;
+  background-color: $gray-3;
+}
+
+.rangeslider__handle{
+  height: 24px;
+  width: 24px;
+  background-color: black;
+  border: 4px solid $gray-1;
+  box-shadow: none;
+
+  &:after{
+    display: none;
+  }
+}
+
+.rangeslider--horizontal .rangeslider__handle{
+  top: -8px;
+}

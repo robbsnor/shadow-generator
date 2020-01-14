@@ -30,25 +30,27 @@
 		</div>
 		<div class="row justify-content-between">
 			<div class="col-12 col-md-6 order-2 order-md-1">
-				<div class="setting">
+				<div id="horizontal-offset" class="setting">
 					<span>horizontal offset</span>
 					<div class="input-group input-group--arrow">
-						<input id="horizontal-offset" type="number" class="form-control" placeholder="0">
+						<input type="number" class="form-control" placeholder="0" value="20">
 						<div class="custom">
 							<div class="suffix">px</div>
 							<div class="arrows"><i class="fas fa-chevron-up add"></i><i class="fas fa-chevron-down sub"></i></div>
 						</div>
 					</div>
+					<input type="range" max="100">
 				</div>
-				<div class="setting">
+				<div id="vertical-offset" class="setting">
 					<span>vertical offset</span>
 					<div class="input-group input-group--arrow">
-						<input id="vertical-offset" type="number" class="form-control" placeholder="0">
+						<input type="number" class="form-control" placeholder="0">
 						<div class="custom">
 							<div class="suffix">px</div>
 							<div class="arrows"><i class="fas fa-chevron-up add"></i><i class="fas fa-chevron-down sub"></i></div>
 						</div>
 					</div>
+					<!-- <input type="range" max="100"> -->
 				</div>
 
 				<hr>
@@ -62,7 +64,9 @@
 							<div class="arrows"><i class="fas fa-chevron-up add"></i><i class="fas fa-chevron-down sub"></i></div>
 						</div>
 					</div>
+					<!-- <input type="range" max="100"> -->
 				</div>
+
 				<div class="setting">
 					<span>spread radius</span>
 					<div class="input-group input-group--arrow">
@@ -72,6 +76,7 @@
 							<div class="arrows"><i class="fas fa-chevron-up add"></i><i class="fas fa-chevron-down sub"></i></div>
 						</div>
 					</div>
+					<!-- <input type="range" max="100"> -->
 				</div>
 
 				<hr>
@@ -88,6 +93,7 @@
 							<div class="arrows"><i class="fas fa-chevron-up add"></i><i class="fas fa-chevron-down sub"></i></div>
 						</div>
 					</div>
+					<!-- <input type="range" max="100"> -->
 				</div>
 
 				<div class="setting">
@@ -96,6 +102,7 @@
 						<div class="transparent"></div>
 						<div id="box-color" class="color" style="background: white;"></div>
 					</div>
+					<!-- <input type="range" max="100"> -->
 				</div>
 
 				<hr>
@@ -107,12 +114,10 @@
 						<span class="slider"></span>
 					</label>
 				</div>
-
-
-
 			</div>
 
 			<div class="col-12 col-md-5 order-1 order-md-2">
+				<div id="generate" class="btn btn-primary">generate</div>
 				<div class="final-preview"></div>
 			</div>
 
