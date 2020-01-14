@@ -1,53 +1,52 @@
-
-  function isInset() {
-    if (document.getElementById('inset').checked) {
-      return 'inset';
-    } else {
-      return '';
-    }
+function isInset() {
+  if (document.getElementById('inset').checked) {
+    return 'inset';
+  } else {
+    return '';
   }
+}
 
-  function checkEmpty(val) {
-    if (val == '') {
-      return 0;
-    } else {
-      return val;
-    }
+function checkEmpty(val) {
+  if (val == '') {
+    return 0;
+  } else {
+    return val;
   }
+}
 
-  function getShadowVals() {
+function getShadowVals() {
 
-    boxShadowVals = '';
+  boxShadowVals = '';
 
-    var boxShadowSettings = {
-      inset: isInset(),
-      horizontalOffset: checkEmpty($('#horizontal-offset').val()) + 'px',
-      verticalOffset: checkEmpty($('#vertical-offset').val()) + 'px',
-      blurRadius: checkEmpty($('#blur-radius').val()) + 'px',
-      spreadRadius: checkEmpty($('#spread-radius').val()) + 'px',
-      shadowColor: $('#shadow-color').css('background-color'),
+  var boxShadowSettings = {
+    inset: isInset(),
+    horizontalOffset: checkEmpty($('#horizontal-offset').val()) + 'px',
+    verticalOffset: checkEmpty($('#vertical-offset').val()) + 'px',
+    blurRadius: checkEmpty($('#blur-radius').val()) + 'px',
+    spreadRadius: checkEmpty($('#spread-radius').val()) + 'px',
+    shadowColor: $('#shadow-color').css('background-color'),
 
-      // boxColor: $('#box-color').css('background-color'),
-    }
-
-
-    for (key in boxShadowSettings) {
-      // console.log(key)
-      // console.log(boxShadowSettings[key])
-      boxShadowVals = boxShadowVals + (boxShadowSettings[key] + ' ');
-    }
-
-    $('.final-preview').html(boxShadowVals).css({
-      'box-shadow': boxShadowVals
-    });
+    // boxColor: $('#box-color').css('background-color'),
   }
 
 
+  for (key in boxShadowSettings) {
+    // console.log(key)
+    // console.log(boxShadowSettings[key])
+    boxShadowVals = boxShadowVals + (boxShadowSettings[key] + ' ');
+  }
 
-  $(document).on('click', function () {
-    getShadowVals()
-  })
+  $('.final-preview').html(boxShadowVals).css({
+    'box-shadow': boxShadowVals
+  });
+}
+
+
+
+$(document).on('click', function () {
   getShadowVals()
+})
+getShadowVals()
 
 
 
