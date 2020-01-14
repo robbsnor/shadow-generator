@@ -5,15 +5,16 @@
 
 // vendors
 @import "node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/vanilla-picker/src/index";
 
 // all
 @import 'default';
 @import 'classes';
+@import 'containers';
 @import 'forms';
-@import 'hr';
+@import 'titles';
 @import 'headers';
 @import 'box-shadow-settings';
-@import 'preview';
 
 // other
 @import 'dev/dev';

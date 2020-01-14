@@ -1,4 +1,4 @@
-.no--list{
+.no-list{
   *{
     list-style-type: none;
     margin: 0;
@@ -10,16 +10,13 @@
   cursor: pointer;
 }
 
-.h-100{
-  min-height: 100%;
-}
-
 .box-shadow{
   box-shadow: 0 0 10px 0 rgba(0,0,0,0.05);
 
   transition: $transition-base, padding 1ms;
 
   &:focus,
+  &:hover,
   &:active{
     box-shadow: 0 0 20px 0 rgba(0,0,0,0.2);
   }

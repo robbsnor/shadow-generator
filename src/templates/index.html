@@ -1,15 +1,15 @@
 {{> header}}
 
 
-<header class="header--desktop">
-	<div class="container">
+<header class="header-desktop">
+	<div class="container container--big">
 		<div class="the-header">
 			<div class="row justify-content-between d-flex h-100">
 				<div class="col d-flex align-items-center h-100">
 					<div class="logo">css box-shadow generator</div>
 				</div>
 				<div class="col h-100">
-					<nav class="no--list d-flex justify-content-end align-items-center h-100">
+					<nav class="no-list d-flex justify-content-end align-items-center h-100">
 						<ul class="nav-main">
 							<li><a href="">generator</a></li>
 							<li><a href="">presets</a></li>
@@ -21,10 +21,15 @@
 	</div>
 </header>
 
-<main class="box-shadow-settings">
+<section class="box-shadow-settings">
 	<div class="container">
 		<div class="row">
-			<div class="col-6">
+			<div class="col">
+				<div class="title">generate box-shadow</div>
+			</div>
+		</div>
+		<div class="row justify-content-between">
+			<div class="col-12 col-md-6 order-2 order-md-1">
 				<div class="setting">
 					<span>horizontal offset</span>
 					<div class="input-group input-group--arrow">
@@ -51,7 +56,7 @@
 				<div class="setting">
 					<span>blur radius</span>
 					<div class="input-group input-group--arrow">
-						<input id="blur-radius" type="number" class="form-control" value="10">
+						<input id="blur-radius" type="number" class="form-control" placeholder="0" value="10">
 						<div class="custom">
 							<div class="suffix">px</div>
 							<div class="arrows"><i class="fas fa-chevron-up add"></i><i class="fas fa-chevron-down sub"></i></div>
@@ -73,8 +78,24 @@
 
 				<div class="setting">
 					<span>shadow color</span>
-					<input id="color" type="text" class="form-control text-center" value="#000000">
-					<div class="color"></div>
+					<div class="color-picker">
+						<div class="transparent"></div>
+						<div id="shadow-color" class="color" style="background: rgba(0,0,0, 0.5);"></div>
+					</div>
+					<div class="input-group input-group--arrow">
+						<input id="spread-radius" type="number" class="form-control" placeholder="0">
+						<div class="custom">
+							<div class="arrows"><i class="fas fa-chevron-up add"></i><i class="fas fa-chevron-down sub"></i></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="setting">
+					<span>box background</span>
+					<div class="color-picker">
+						<div class="transparent"></div>
+						<div id="box-color" class="color" style="background: white;"></div>
+					</div>
 				</div>
 
 				<hr>
@@ -91,13 +112,13 @@
 
 			</div>
 
-			<div class="col-6">
-				<div class="preview"></div>
+			<div class="col-12 col-md-5 order-1 order-md-2">
+				<div class="final-preview"></div>
 			</div>
 
 		</div>
 	</div>
-</main>
+</section>
 
 
 {{> footer}}
