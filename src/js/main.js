@@ -27,3 +27,11 @@ $(document).ready(function () {
   })
   
 });
+
+new Vue({
+  el: '#vue-app',
+  data: {
+    name: 'robbin'
+  },
+  delimiters: ['[[', ']]']
+})

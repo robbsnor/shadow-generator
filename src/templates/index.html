@@ -21,11 +21,13 @@
 	</div>
 </header>
 
-<section class="box-shadow-settings">
+<section id="vue-app" class="box-shadow-settings">
 	<div class="container">
 		<div class="row">
 			<div class="col">
 				<div class="title">generate box-shadow</div>
+				<input v-model="name" type="text">
+				<h1>[[ name ]]</h1>
 			</div>
 		</div>
 		<div class="row justify-content-between">
