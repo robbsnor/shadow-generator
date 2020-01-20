@@ -29,7 +29,7 @@
 			</div>
 		</div>
 		<div class="row justify-content-between">
-			<div class="col-12 col-md-6 order-2 order-md-1">
+			<div class="col-12 col-lg-6 order-2 order-md-1">
 
 				<div class="setting">
 					<span>horizontal offset</span>
@@ -113,17 +113,25 @@
 
 				<div class="setting">
 					<span>shadow color</span>
-					<div class="input-group">
-						<input type="text" class="form-control" v-model="colors.hex">
-					</div>
 					<div class="color-picker">
 						<div class="transparent"></div>
-						<div class="color" v-on:click="showColorPicker()" v-bind:style="{ backgroundColor: colors.hex }"></div>
+						<div class="color" v-on:click="showColorPicker()" v-bind:style="{ backgroundColor: colors.hex }"
+							v-modal="colors.hex"></div>
 					</div>
-
 					<chrome-picker v-model="colors" />
-
 				</div>
+
+				<div class="setting">
+					<span>box color</span>
+					<div class="color-picker">
+						<div class="transparent"></div>
+						<div class="color" v-on:click="showColorPicker()" v-bind:style="{ backgroundColor: boxColor.hex }"
+							v-modal="boxColor.hex"></div>
+					</div>
+					<chrome-picker v-model="boxColor" />
+				</div>
+
+				<hr>
 
 				<div class="setting">
 					<span>shadow opacity</span>
@@ -156,8 +164,8 @@
 				</div>
 			</div>
 
-			<div class="col-12 col-md-5 order-1 order-md-2">
-				<div class="btn btn-primary" v-on:click="show()">generate</div>
+			<div class="col-12 col-lg-5 order-1 order-md-2">
+				<div class="btn btn-primary" v-on:click="generate()">generate</div>
 				<div class="final-preview"></div>
 			</div>
 
