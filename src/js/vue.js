@@ -17,14 +17,14 @@ new Vue({
     blurRadius: 50,
     blurSpread: 10,
     inset: false,
+    opacity: 0.5,
     colors: {
-      hex: '#194d33',
-      hsl: { h: 150, s: 0.5, l: 0.2, a: 1 },
-      hsv: { h: 150, s: 0.66, v: 0.30, a: 1 },
-      rgba: { r: 25, g: 77, b: 51, a: 1 },
+      hex: '#000000',
+      hsl: { h: 4, s: 0, l: 0, a: 1 },
+      hsv: { h: 4, s: 0, l: 0, a: 1 },
+      rgba: { r: 0, g: 0, b: 0, a: 1 },
       a: 1
     },
-    opacity: 0.5
   },
   methods: {
     increaseValue: function (offset) {
@@ -34,8 +34,13 @@ new Vue({
       this._data[offset]--;
     },
     show: function () {
-      var rgba = `rgba(${this.colors.rgba.r}, ${this.colors.rgba.g}, ${this.colors.rgba.b}, ${this.colors.rgba.a})`
-      var settings = `${this.horizontalOffset}px ${this.verticalOffset}px ${this.blurRadius}px ${this.blurSpread}px ${rgba}`;
+      var rgba = `rgba(${this.colors.rgba.r}, ${this.colors.rgba.g}, ${this.colors.rgba.b}, ${this.colors.rgba.a})`;
+      var inset = '';
+      if (this.inset == true) {
+        inset = 'inset'
+      }
+      var settings = `${this.horizontalOffset}px ${this.verticalOffset}px ${this.blurRadius}px ${this.blurSpread}px ${rgba} ${inset}`;
+
       console.log(settings)
     },
     showColorPicker: function () {
