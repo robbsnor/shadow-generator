@@ -4,15 +4,18 @@ const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
 const rename = require('gulp-rename');
 const browserSync = require('browser-sync').create();
-const cleanCSS = require('gulp-clean-css');
-const concat = require('gulp-concat');
 const mustache = require('gulp-mustache');
 
+const webpack = require('webpack-stream');
+const webpackConfig = require('./webpack.dev');
+
+const moveFileTypes = 'png,jpg,gif,svg,php,pdf';
 
 
-// compilers
+
+// functions
 function compileTemplates() {
-  return gulp.src('./src/templates/**/*.html')
+  return gulp.src('./src/**/*.html')
     .pipe(mustache())
     .pipe(rename({dirname: '/'}))
     .pipe(gulp.dest('./dist/'))
@@ -24,56 +27,53 @@ function compileScss() {
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     // .pipe(autoprefixer())
-    .pipe(rename({dirname: '/'}))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./dist'))
-    .pipe(browserSync.stream());
-}
-
-function compileJs() {
-  return gulp.src('./src/**/*.js')
-    .pipe(sourcemaps.init())
-    .pipe(rename({dirname: '/'}))
-    .pipe(concat('main.js'))
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./dist'))
-    .pipe(browserSync.stream());
-}
-
-function compileImg() {
-  return gulp.src('./src/**/*.{png,jpg,gif,svg}')
-    .pipe(rename({dirname: '/'}))
     .pipe(gulp.dest('./dist/'))
     .pipe(browserSync.stream());
 }
 
+function moveFiles() {
+  return gulp.src('./src/**/*.{' + moveFileTypes + '}')
+    .pipe(gulp.dest('./dist/'))
+    .pipe(browserSync.stream());
+}
+
+function webpackDev() {
+  return webpack(webpackConfig)
+    .pipe(gulp.dest('./dist/js/'))
+    .pipe(browserSync.stream());
+}
 
 
-// browser-sync
+
+// browsersync
 function bsServe() {
   browserSync.init({
     server: {
-      baseDir: "./dist",
-      index: "/index.html",
+      baseDir: './dist',
+      index: '/index.html'
     },
-    open: "external",
+    open: 'external',
     notify: false,
-    ghostMode: false,
+    ghostMode: false
   });
 
+  gulp.watch('./src/**/*.{' + moveFileTypes + '}', moveFiles);
   gulp.watch('./src/**/*.mustache', compileTemplates);
   gulp.watch('./src/**/*.html', compileTemplates);
   gulp.watch('./src/**/*.scss', compileScss);
-  gulp.watch('./src/**/*.js', compileJs);
-  gulp.watch('./src/**/*.{png,jpg,gif,svg}', compileImg);
-};
+  gulp.watch('./src/**/*.js', webpackDev);
+  gulp.watch('./src/**/*.json', webpackDev);
+}
 
 
 
-// gulp functions and exports
-// v - shared functions between 'Dev compile' and 'Dev serve'
-const compilersForDev = gulp.parallel(compileTemplates, compileScss, compileJs, compileImg);
+// exports
 
-exports.compilersForProd        = gulp.parallel(compileTemplates, compileImg);
-exports.compilersForDevCompile  = compilersForDev
-exports.compilersForDevServe    = gulp.series(compilersForDev, bsServe);
+// dev
+var devFunctions = gulp.parallel(compileTemplates, compileScss, moveFiles, webpackDev);
+exports.devCompile = devFunctions;
+exports.dev = gulp.series(devFunctions, bsServe);
+
+// production
+exports.prod = gulp.parallel(compileTemplates, moveFiles);
