@@ -1,0 +1,5 @@
+dev:
+  tags:
+    - ci
+  script:
+    - echo Hello world
