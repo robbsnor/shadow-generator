@@ -1,33 +1,29 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
-const rename = require('gulp-rename');
 const cleanCSS = require('gulp-clean-css');
 const autoprefixer = require('gulp-autoprefixer');
-const concat = require('gulp-concat');
-const uglify = require('gulp-uglify');
+
+const webpack = require("webpack-stream");
+const webpackConfig = require("./webpack.prod");
 
 
 
-// compilers
+// functions
 function compileScss() {
   return gulp.src('./src/**/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer())
-    .pipe(rename({dirname: '/'}))
     .pipe(sass({outputStyle: 'compressed'}))
     .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(gulp.dest('./dist'))
 }
 
-function compileJs() {
-  return gulp.src(['./src/**/*.js', '!./src/**/dev/**/*.js'])
-    .pipe(rename({dirname: '/'}))
-    .pipe(concat('main.js'))
-    .pipe(uglify())
-    .pipe(gulp.dest('./dist'))
+function webpackProd() {
+  return webpack(webpackConfig)
+    .pipe(gulp.dest("./dist/js/"));
 }
 
 
 
-// gulp functions and exports
-exports.compilersForProd = gulp.parallel(compileScss, compileJs);
+// exports
+exports.prod = gulp.parallel(compileScss, webpackProd);

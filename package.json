@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "gulp start",
+    "start": "gulp dev",
     "compile": "gulp compile",
     "prod": "gulp prod"
   },
@@ -19,13 +19,21 @@
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
-    "gulp-uglify": "^3.0.2"
+    "gulp-uglify": "^3.0.2",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-merge": "^4.2.2",
+    "webpack-stream": "^5.2.1"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.11.2",
-    "bootstrap": "^4.4.0",
-    "jquery": "^3.4.1",
+    "@adrianjost/two-channel-picker": "^0.3.6",
+    "@fortawesome/fontawesome-free": "^5.12.0",
+    "bootstrap": "^4.4.1",
+    "bootstrap-vue": "^2.2.2",
     "rangeslider.js": "^2.3.3",
-    "vanilla-picker": "^2.10.1"
+    "v-color": "^1.1.2",
+    "vanilla-picker": "^2.10.1",
+    "vue": "^2.6.11",
+    "vue-color": "^2.7.0"
   }
 }
