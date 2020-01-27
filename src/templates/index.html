@@ -47,7 +47,7 @@
 							</div>
 						</div>
 					</div>
-					<b-form-input v-model="horizontalOffset" type="range" min="0" max="100" class="mt-3 mb-4"></b-form-input>
+					<b-form-input v-model="horizontalOffset" type="range" min="-100" max="100" val="0" class="mt-3 mb-4" ></b-form-input>
 				</div>
 
 				<div class="setting">
@@ -66,7 +66,7 @@
 							</div>
 						</div>
 					</div>
-					<b-form-input v-model="verticalOffset" type="range" min="0" max="100" class="mt-3 mb-1"></b-form-input>
+					<b-form-input v-model="verticalOffset" type="range" min="-100" max="100" val="0" class="mt-3 mb-4"></b-form-input>
 				</div>
 				
 				<hr>
@@ -115,41 +115,9 @@
 					<span>shadow color</span>
 					<div class="color-picker">
 						<div class="transparent"></div>
-						<div class="color" v-on:click="showColorPicker()" v-bind:style="{ backgroundColor: colors.hex }"
-							v-modal="colors.hex"></div>
+						<div class="color" v-on:click="showColorPicker()" v-bind:style="{ backgroundColor: colors.hex }"></div>
 					</div>
 					<chrome-picker v-model="colors" />
-				</div>
-
-				<div class="setting">
-					<span>box color</span>
-					<div class="color-picker">
-						<div class="transparent"></div>
-						<div class="color" v-on:click="showColorPicker()" v-bind:style="{ backgroundColor: boxColor.hex }"
-							v-modal="boxColor.hex"></div>
-					</div>
-					<chrome-picker v-model="boxColor" />
-				</div>
-
-				<hr>
-
-				<div class="setting">
-					<span>shadow opacity</span>
-					<div class="input-group input-group--arrow">
-						<input v-model="opacity" type="number" class="form-control" placeholder="0">
-						<div class="custom">
-							<div class="suffix">%</div>
-							<div class="arrows">
-								<div class="add" v-on:click="increaseValue('opacity')">
-									<i class="fas fa-chevron-up add"></i>
-								</div>
-								<div class="minus" v-on:click="decreaseValue('opacity')">
-									<i class="fas fa-chevron-down sub"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-					<b-form-input v-model="opacity" type="range" min="0" max="1" step="0.01" class="mt-3 mb-1"></b-form-input>
 				</div>
 
 				<hr>
@@ -165,7 +133,7 @@
 			</div>
 
 			<div class="col-12 col-lg-5 order-1 order-md-2">
-				<div class="btn btn-primary" v-on:click="generate()">generate</div>
+				<div class="btn btn-primary" v-on:click="applyShadow()">generate</div>
 				<div class="final-preview"></div>
 			</div>
 

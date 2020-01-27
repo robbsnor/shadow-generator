@@ -1,8 +1,11 @@
 body {
   .vc-chrome {
+    margin-top: 25px;
     width: 100%;
     border-radius: $border-radius-1;
     font: inherit !important;
+    
+    @extend .box-shadow;
 
     input{
       @extend .form-control;

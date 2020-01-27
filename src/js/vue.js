@@ -3,10 +3,7 @@ Vue.use(BootstrapVue)
 
 import { Chrome } from 'vue-color';
 
-$('body').on('click', function () {
-  // $('.vc-chrome-saturation-wrap').parent().hide();
-  console.log(2)
-})
+
 
 
 
@@ -28,13 +25,7 @@ new Vue({
       rgba: { r: 0, g: 0, b: 0, a: 1 },
       a: 0.5
     },
-    boxColor: {
-      hex: '#000000',
-      hsl: { h: 4, s: 0, l: 0, a: 1 },
-      hsv: { h: 4, s: 0, l: 0, a: 1 },
-      rgba: { r: 0, g: 0, b: 0, a: 1 },
-      a: 0.5
-    }
+    shadow: ''
   },
   methods: {
     increaseValue: function (offset) {
@@ -43,20 +34,20 @@ new Vue({
     decreaseValue: function (offset) {
       this._data[offset]--;
     },
-    generate: function () {
+    applyShadow: function () {
       var rgba = `rgba(${this.colors.rgba.r}, ${this.colors.rgba.g}, ${this.colors.rgba.b}, ${this.colors.rgba.a})`;
       var inset = '';
       if (this.inset == true) {
         inset = 'inset';
       }
+      
+     this.shadow = `${this.horizontalOffset}px ${this.verticalOffset}px ${this.blurRadius}px ${this.blurSpread}px ${rgba} ${inset}`;
 
-      var settings = `${this.horizontalOffset}px ${this.verticalOffset}px ${this.blurRadius}px ${this.blurSpread}px ${rgba} ${inset}`;
-
-      console.log(settings)
-    },
-    showColorPicker: function () {
-      $('.vc-chrome-saturation-wrap').parent().show();
+      $('.final-preview').css({boxShadow: this.shadow})
     }
+  },
+  mounted: function () {
+    console.log(this.colors.rgba)
   },
   components: {
     'chrome-picker': Chrome
@@ -69,5 +60,4 @@ new Vue({
 
 
 
-$('.vc-chrome-saturation-wrap').parent().hide();
 
