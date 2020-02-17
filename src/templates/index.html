@@ -34,7 +34,7 @@
 				<div class="setting">
 					<span>horizontal offset</span>
 					<div class="input-group input-group--arrow">
-						<input v-model="horizontalOffset" type="number" class="form-control" placeholder="0">
+						<input v-model="options.horizontalOffset" type="number" class="form-control" placeholder="0">
 						<div class="custom">
 							<div class="suffix">px</div>
 							<div class="arrows">
@@ -47,13 +47,13 @@
 							</div>
 						</div>
 					</div>
-					<b-form-input v-model="horizontalOffset" type="range" min="-100" max="100" val="0" class="mt-3 mb-4" ></b-form-input>
+					<b-form-input v-model="options.horizontalOffset" type="range" min="-100" max="100" val="0" class="mt-3 mb-4" ref="horizontalOffset"></b-form-input>
 				</div>
 
 				<div class="setting">
 					<span>vertical offset</span>
 					<div class="input-group input-group--arrow">
-						<input v-model="verticalOffset" type="number" class="form-control" placeholder="0">
+						<input v-model="options.verticalOffset" type="number" class="form-control" placeholder="0">
 						<div class="custom">
 							<div class="suffix">px</div>
 							<div class="arrows">
@@ -66,7 +66,7 @@
 							</div>
 						</div>
 					</div>
-					<b-form-input v-model="verticalOffset" type="range" min="-100" max="100" val="0" class="mt-3 mb-4"></b-form-input>
+					<b-form-input v-model="options.verticalOffset" type="range" min="-100" max="100" val="0" class="mt-3 mb-4" ref="verticalOffset"></b-form-input>
 				</div>
 				
 				<hr>
@@ -74,7 +74,7 @@
 				<div class="setting">
 					<span>blur radius</span>
 					<div class="input-group input-group--arrow">
-						<input v-model="blurRadius" type="number" class="form-control" placeholder="0">
+						<input v-model="options.blurRadius" type="number" class="form-control" placeholder="0">
 						<div class="custom">
 							<div class="suffix">px</div>
 							<div class="arrows">
@@ -87,13 +87,13 @@
 							</div>
 						</div>
 					</div>
-					<b-form-input v-model="blurRadius" type="range" min="0" max="100" class="mt-3 mb-1"></b-form-input>
+					<b-form-input v-model="options.blurRadius" type="range" min="0" max="100" class="mt-3 mb-1"></b-form-input>
 				</div>
 
 				<div class="setting">
 					<span>vertical offset</span>
 					<div class="input-group input-group--arrow">
-						<input v-model="blurSpread" type="number" class="form-control" placeholder="0">
+						<input v-model="options.blurSpread" type="number" class="form-control" placeholder="0">
 						<div class="custom">
 							<div class="suffix">px</div>
 							<div class="arrows">
@@ -106,7 +106,7 @@
 							</div>
 						</div>
 					</div>
-					<b-form-input v-model="blurSpread" type="range" min="0" max="100" class="mt-3 mb-1"></b-form-input>
+					<b-form-input v-model="options.blurSpread" type="range" min="0" max="100" class="mt-3 mb-1"></b-form-input>
 				</div>
 				
 				<hr>

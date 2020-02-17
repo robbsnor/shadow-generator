@@ -12,10 +12,12 @@ import { Chrome } from 'vue-color';
 new Vue({
   el: '#vue-app',
   data: {
-    horizontalOffset: 0,
-    verticalOffset: 0,
-    blurRadius: 50,
-    blurSpread: 10,
+    options: [
+      {horizontalOffset: 0},
+      {verticalOffset: 0},
+      {blurRadius: 50},
+      {blurSpread: 10}
+    ],
     inset: false,
     opacity: 0.5,
     colors: {
@@ -27,6 +29,13 @@ new Vue({
     },
     shadow: ''
   },
+  watch: {
+    options(val) {
+      console.log(this.options.horizontalOffset)
+      $('.final-preview').css({boxShadow: `${this.options.horizontalOffset}px 10px 10px black`})
+    },
+  },
+
   methods: {
     increaseValue: function (offset) {
       this._data[offset]++;
@@ -41,7 +50,7 @@ new Vue({
         inset = 'inset';
       }
       
-     this.shadow = `${this.horizontalOffset}px ${this.verticalOffset}px ${this.blurRadius}px ${this.blurSpread}px ${rgba} ${inset}`;
+     this.shadow = `${this.options.horizontalOffset}px ${this.options.verticalOffset}px ${this.options.blurRadius}px ${this.options.blurSpread}px ${rgba} ${inset}`;
 
       $('.final-preview').css({boxShadow: this.shadow})
     }
