@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    <div class="hero">
+      <h1>Shadow Generator</h1>
+    </div>
     <ShadowGenerator />
   </div>
 </template>
@@ -16,15 +19,16 @@ export default {
 </script>
 
 <style lang="scss">
-@import "node_modules/bootstrap/scss/bootstrap";
-@import "node_modules/bootstrap-vue/src/index.scss";
+@import "assets/scss/global.scss";
 
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.hero {
+  h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 60px;
+    padding: 150px 0;
+    font-style: italic;
+    letter-spacing: 0.3em;
+  }
 }
 </style>

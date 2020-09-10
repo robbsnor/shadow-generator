@@ -1,0 +1,31 @@
+$border-width: 0;
+$input-focus-border-color: none;
+$input-focus-box-shadow: none;
+
+$input-btn-padding-x: 0rem;
+$input-color: black;
+$font-size-base: 1.125rem; // 18px
+
+
+// grid
+// they are the default values, but with a an optional xxl
+$grid-breakpoints: (xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1500px);
+
+$container-max-widths: (sm: 576px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+    xxl: 1440px);
+
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/bootstrap-vue/src/index.scss";
+
+body {
+    font-family: 'Lora', serif;
+    letter-spacing: .2em;
+}
