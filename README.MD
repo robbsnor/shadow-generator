@@ -1,22 +1,24 @@
-## Install
+# shadow-generator
+
+## Project setup
 ```
-npm i
+npm install
 ```
 
-## Run dev server
-Runs a browsersync dev server, served from the *build* folder.
+### Compiles and hot-reloads for development
 ```
-npm run start
-```
-
-## Recompile dev files
-Recompiles the *build* folder without browsersync.
-```
-npm run compile
+npm run serve
 ```
 
-## Ready for poduction
-Run when ready for production. Generates a *dist* folder.
+### Compiles and minifies for production
 ```
-npm run prod
+npm run build
 ```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
