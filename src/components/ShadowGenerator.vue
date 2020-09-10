@@ -2,7 +2,7 @@
   <div>
     <div class="container">
       <div class="row">
-        <div class="col-12 col-md-5">
+        <div class="col-12 col-xl-5">
           <div class="form-group">
             <div class="top">
               <label>Horizontal Offset</label>
