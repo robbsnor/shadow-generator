@@ -6,21 +6,9 @@
           <div class="form-group">
             <div class="top">
               <label>Horizontal Offset</label>
-              <b-form-input
-                v-model="horizontalLength"
-                type="number"
-                min="-200"
-                max="200"
-                class="value"
-              ></b-form-input>
+              <b-form-input v-model="horizontalLength" type="number" min="-200" max="200" class="value"></b-form-input>
             </div>
-            <b-form-input
-              v-model="horizontalLength"
-              type="range"
-              min="-50"
-              max="50"
-              class="range-center"
-            ></b-form-input>
+            <b-form-input v-model="horizontalLength" type="range" min="-50" max="50" class="range-center"></b-form-input>
           </div>
 
           <div class="form-group">
@@ -28,13 +16,7 @@
               <label>Vertical Offset</label>
               <b-form-input v-model="verticalLength" type="number" min="-50" max="50" class="value"></b-form-input>
             </div>
-            <b-form-input
-              v-model="verticalLength"
-              type="range"
-              min="-50"
-              max="50"
-              class="range-center"
-            ></b-form-input>
+            <b-form-input v-model="verticalLength" type="range" min="-50" max="50" class="range-center"></b-form-input>
           </div>
 
           <div class="form-group">
@@ -62,9 +44,13 @@
               </label>
             </div>
           </div>
+
+          <div class="form-group">
+            <ShadowPicker v-model="shadowColor" />
+          </div>
         </div>
         <div class="col text-center">
-          <div class="box" v-bind:style="{ 'box-shadow': generateShadow}">Copy</div>
+          <div class="box" v-bind:style="{ 'box-shadow': generateShadow }">Copy</div>
         </div>
       </div>
     </div>
@@ -72,6 +58,8 @@
 </template>
 
 <script>
+import { Chrome } from "vue-color";
+
 export default {
   name: "ShadowGenerator",
   data() {
@@ -99,6 +87,9 @@ export default {
     generateShadow() {
       return `${this.inset} ${this.horizontalLength}px ${this.verticalLength}px ${this.blurRadius}px ${this.spreadRadius}px rgba(${this.shadowColor.rgba.r}, ${this.shadowColor.rgba.g}, ${this.shadowColor.rgba.b}, ${this.shadowColor.rgba.a})`;
     },
+  },
+  components: {
+    ShadowPicker: Chrome,
   },
 };
 </script>
