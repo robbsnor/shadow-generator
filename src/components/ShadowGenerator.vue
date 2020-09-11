@@ -36,6 +36,11 @@
           </div>
 
           <div class="form-group">
+            <label>Shadow Color</label>
+            <ShadowPicker v-model="shadowColor" />
+          </div>
+
+          <div class="form-group">
             <div class="top">
               <label>Inset</label>
               <label class="switch">
@@ -44,13 +49,19 @@
               </label>
             </div>
           </div>
-
-          <div class="form-group">
-            <ShadowPicker v-model="shadowColor" />
-          </div>
         </div>
         <div class="col text-center">
-          <div class="box" v-bind:style="{ 'box-shadow': generateShadow }">Copy</div>
+          <div class="box" v-bind:style="{ 'box-shadow': generateShadow }">
+            <div>
+              Copy <br />
+              -<br />
+            </div>
+            <div>
+              <small>
+                {{ generateShadow }}
+              </small>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -127,6 +138,7 @@ export default {
   background-color: white;
   border-radius: 5px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   cursor: pointer;

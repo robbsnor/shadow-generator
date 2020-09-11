@@ -10,22 +10,40 @@ $font-size-base: 1.125rem; // 18px
 // grid
 // they are the default values, but with a an optional xxl
 $grid-breakpoints: (xs: 0,
-    sm: 576px,
-    md: 768px,
-    lg: 992px,
-    xl: 1200px,
-    xxl: 1500px);
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px,
+	xxl: 1500px);
 
 $container-max-widths: (sm: 576px,
-    md: 720px,
-    lg: 960px,
-    xl: 1140px,
-    xxl: 1440px);
+	md: 720px,
+	lg: 960px,
+	xl: 1140px,
+	xxl: 1440px);
 
 @import "node_modules/bootstrap/scss/bootstrap";
 @import "node_modules/bootstrap-vue/src/index.scss";
 
 body {
-    font-family: 'Lora', serif;
-    letter-spacing: .2em;
+	font-family: 'Lora', serif;
+	letter-spacing: .2em;
+}
+
+body {
+	.vc-chrome {
+		width: 100%;
+		border-radius: 4px;
+		box-shadow: none;
+		overflow: hidden;
+	}
+
+	.vc-chrome-saturation-wrap {
+		padding-bottom: 22%;
+	}
+
+	// .vc-chrome-body {
+	// 	padding-left: 0;
+	// 	padding-right: 0;
+	// }
 }

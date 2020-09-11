@@ -26,7 +26,7 @@ export default {
     text-align: center;
     font-weight: bold;
     font-size: 60px;
-    padding: 150px 0;
+    padding: 100px 0;
     font-style: italic;
     letter-spacing: 0.3em;
   }
