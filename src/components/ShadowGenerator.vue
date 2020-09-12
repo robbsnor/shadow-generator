@@ -6,9 +6,21 @@
           <div class="form-group">
             <div class="top">
               <label>Horizontal Offset</label>
-              <b-form-input v-model="horizontalLength" type="number" min="-200" max="200" class="value"></b-form-input>
+              <b-form-input
+                v-model="horizontalLength"
+                type="number"
+                min="-200"
+                max="200"
+                class="value"
+              ></b-form-input>
             </div>
-            <b-form-input v-model="horizontalLength" type="range" min="-50" max="50" class="range-center"></b-form-input>
+            <b-form-input
+              v-model="horizontalLength"
+              type="range"
+              min="-50"
+              max="50"
+              class="range-center"
+            ></b-form-input>
           </div>
 
           <div class="form-group">
@@ -16,7 +28,13 @@
               <label>Vertical Offset</label>
               <b-form-input v-model="verticalLength" type="number" min="-50" max="50" class="value"></b-form-input>
             </div>
-            <b-form-input v-model="verticalLength" type="range" min="-50" max="50" class="range-center"></b-form-input>
+            <b-form-input
+              v-model="verticalLength"
+              type="range"
+              min="-50"
+              max="50"
+              class="range-center"
+            ></b-form-input>
           </div>
 
           <div class="form-group">
@@ -36,7 +54,10 @@
           </div>
 
           <div class="form-group">
-            <label>Shadow Color</label>
+            <div class="top">
+              <label>Shadow Color</label>
+              <div class="shadow-picker" @click="toggleShowShadowPicker"></div>
+            </div>
             <ShadowPicker v-model="shadowColor" />
           </div>
 
@@ -53,13 +74,12 @@
         <div class="col text-center">
           <div class="box" v-bind:style="{ 'box-shadow': generateShadow }">
             <div>
-              Copy <br />
-              -<br />
+              Copy
+              <br />-
+              <br />
             </div>
             <div>
-              <small>
-                {{ generateShadow }}
-              </small>
+              <small>{{ generateShadow }}</small>
             </div>
           </div>
         </div>
@@ -91,6 +111,16 @@ export default {
         this.inset = "inset";
       } else {
         this.inset = "";
+      }
+    },
+    toggleShowShadowPicker() {
+      console.log("yo");
+      var colorPicker = document.querySelector(".vc-chrome");
+
+      if (colorPicker.classList.contains("vc-chrome--show")) {
+        colorPicker.classList.remove("vc-chrome--show");
+      } else {
+        colorPicker.classList.add("vc-chrome--show");
       }
     },
   },
@@ -142,6 +172,13 @@ export default {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+
+.shadow-picker {
+  width: 50px;
+  height: 50px;
+  background-color: orange;
+  border-radius: 4px;
 }
 
 .custom-range::-webkit-slider-runnable-track {
