@@ -231,8 +231,10 @@ export default {
 .box {
   position: relative;
   margin: 0 auto;
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   height: 300px;
+  margin-bottom: 50px;
   background-color: white;
   border-radius: 5px;
   display: flex;

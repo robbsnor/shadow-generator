@@ -29,6 +29,10 @@ export default {
     padding: 100px 0;
     font-style: italic;
     letter-spacing: 0.3em;
+
+    @include media-breakpoint-down(sm) {
+      font-size: 40px;
+    }
   }
 }
 </style>
