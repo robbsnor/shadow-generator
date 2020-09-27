@@ -17,8 +17,8 @@
             <b-form-input
               v-model="horizontalLength"
               type="range"
-              min="-50"
-              max="50"
+              min="-25"
+              max="25"
               class="range-center"
             ></b-form-input>
           </div>
@@ -26,13 +26,19 @@
           <div class="form-group">
             <div class="top">
               <label>Vertical Offset</label>
-              <b-form-input v-model="verticalLength" type="number" min="-50" max="50" class="value"></b-form-input>
+              <b-form-input
+                v-model="verticalLength"
+                type="number"
+                min="-25"
+                max="25"
+                class="value"
+              ></b-form-input>
             </div>
             <b-form-input
               v-model="verticalLength"
               type="range"
-              min="-50"
-              max="50"
+              min="-25"
+              max="25"
               class="range-center"
             ></b-form-input>
           </div>
@@ -40,23 +46,49 @@
           <div class="form-group">
             <div class="top">
               <label>Blur</label>
-              <b-form-input v-model="blurRadius" type="number" min="-50" max="50" class="value"></b-form-input>
+              <b-form-input
+                v-model="blurRadius"
+                type="number"
+                min="-25"
+                max="25"
+                class="value"
+              ></b-form-input>
             </div>
-            <b-form-input v-model="blurRadius" type="range" min="0" max="50"></b-form-input>
+            <b-form-input
+              v-model="blurRadius"
+              type="range"
+              min="0"
+              max="25"
+            ></b-form-input>
           </div>
 
           <div class="form-group">
             <div class="top">
               <label>Spread</label>
-              <b-form-input v-model="spreadRadius" type="number" min="-50" max="50" class="value"></b-form-input>
+              <b-form-input
+                v-model="spreadRadius"
+                type="number"
+                min="-25"
+                max="25"
+                class="value"
+              ></b-form-input>
             </div>
-            <b-form-input v-model="spreadRadius" type="range" min="0" max="50"></b-form-input>
+            <b-form-input
+              v-model="spreadRadius"
+              type="range"
+              min="0"
+              max="25"
+            ></b-form-input>
           </div>
 
           <div class="form-group">
             <div class="top">
               <label>Shadow Color</label>
-              <div class="shadow-picker" @click="toggleShowShadowPicker"></div>
+              <div
+                class="shadow-picker"
+                @click="togglehadowPicker"
+                v-bind:style="{ background: shadowColor.hex }"
+              ></div>
             </div>
             <ShadowPicker v-model="shadowColor" />
           </div>
@@ -72,7 +104,11 @@
           </div>
         </div>
         <div class="col text-center">
-          <div class="box" v-bind:style="{ 'box-shadow': generateShadow }">
+          <div
+            class="box"
+            v-bind:style="{ 'box-shadow': generateShadow }"
+            v-on:click="copyThis('yobro')"
+          >
             <div>
               Copy
               <br />-
@@ -80,8 +116,22 @@
             </div>
             <div>
               <small>{{ generateShadow }}</small>
+              <input
+                type="text"
+                v-model="generateShadow"
+                id="yobro"
+                class="wooosh"
+              />
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h2>Shadow presets</h2>
         </div>
       </div>
     </div>
@@ -101,6 +151,7 @@ export default {
       spreadRadius: 0,
       shadowColor: {
         rgba: { r: 0, g: 0, b: 0, a: 0.4 },
+        hex: "#000000",
       },
       inset: "",
     };
@@ -113,15 +164,30 @@ export default {
         this.inset = "";
       }
     },
-    toggleShowShadowPicker() {
-      console.log("yo");
+    closeShadowPicker() {
+      var colorPicker = document.querySelector(".vc-chrome");
+
+      colorPicker.classList.remove("vc-chrome--show");
+    },
+    openShadowPicker() {
+      var colorPicker = document.querySelector(".vc-chrome");
+      colorPicker.classList.add("vc-chrome--show");
+    },
+    togglehadowPicker() {
       var colorPicker = document.querySelector(".vc-chrome");
 
       if (colorPicker.classList.contains("vc-chrome--show")) {
-        colorPicker.classList.remove("vc-chrome--show");
+        this.closeShadowPicker();
       } else {
-        colorPicker.classList.add("vc-chrome--show");
+        this.openShadowPicker();
       }
+    },
+    copyThis(idSelector) {
+      var copyText = document.getElementById(idSelector);
+      copyText.select();
+      copyText.setSelectionRange(0, 99999);
+      document.execCommand("copy");
+      // alert("Copied the text: " + copyText.value);
     },
   },
   computed: {
@@ -145,6 +211,7 @@ export default {
     width: auto;
     text-align: right;
   }
+  margin-bottom: 2rem;
 }
 
 .range-center {
@@ -157,11 +224,12 @@ export default {
     opacity: 0.2;
     display: block;
     height: 40px;
-    margin-top: -10px;
+    margin-top: -21px;
   }
 }
 
 .box {
+  position: relative;
   margin: 0 auto;
   width: 400px;
   height: 300px;
@@ -177,27 +245,38 @@ export default {
 .shadow-picker {
   width: 50px;
   height: 50px;
-  background-color: orange;
   border-radius: 4px;
+  cursor: pointer;
 }
 
-.custom-range::-webkit-slider-runnable-track {
-  background-color: black;
-  border-radius: 0;
-  height: 2px;
-}
-.custom-range::-webkit-slider-thumb {
-  position: relative;
-  margin-top: -10px;
-  height: 20px;
-  width: 20px;
-  background-color: white;
-  border: 2px solid black;
-  box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 1);
+.custom-range {
+  height: auto;
 
-  &:active {
+  &::-webkit-slider-runnable-track {
     background-color: black;
+    border-radius: 0;
+    height: 2px;
   }
+  &::-webkit-slider-thumb {
+    position: relative;
+    margin-top: -10px;
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    border: 2px solid black;
+    box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 1);
+
+    &:active {
+      background-color: black;
+    }
+  }
+}
+
+.wooosh {
+  position: absolute;
+  top: -2000px;
+  left: -2000px;
+  opacity: 0;
 }
 
 /* The switch - the box around the slider */
