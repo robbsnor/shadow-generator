@@ -127,14 +127,6 @@
         </div>
       </div>
     </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <h2>Shadow presets</h2>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -224,7 +216,7 @@ export default {
     opacity: 0.2;
     display: block;
     height: 40px;
-    margin-top: -21px;
+    margin-top: 0px;
   }
 }
 
@@ -252,13 +244,34 @@ export default {
 }
 
 .custom-range {
+  position: relative;
   height: auto;
 
-  &::-webkit-slider-runnable-track {
-    background-color: black;
-    border-radius: 0;
+  // horizontal stroke
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 19px;
+    left: 0;
+    right: 0;
     height: 2px;
+    background-color: black;
+    user-select: none;
   }
+
+  &::-webkit-slider-runnable-track {
+    border-radius: 0;
+    background-color: transparent;
+    padding: 20px 0;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 20px;
+    }
+  }
+
   &::-webkit-slider-thumb {
     position: relative;
     margin-top: -10px;
@@ -267,6 +280,7 @@ export default {
     background-color: white;
     border: 2px solid black;
     box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 1);
+    z-index: 1;
 
     &:active {
       background-color: black;
